@@ -1,0 +1,10 @@
+{% extends 'accounts/layout.html' %} {% block content %} {% if msg %} {{msg}}
+{%endif %}
+
+<h1>Twitter Registration</h1>
+<form method="post" action="{% url 'register' %}">
+  {% csrf_token %} {{ form.as_p }}
+  <input type="submit" />
+</form>
+
+{% endblock %}
