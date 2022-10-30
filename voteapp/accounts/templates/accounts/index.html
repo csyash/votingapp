@@ -1,0 +1,15 @@
+{% extends 'accounts/layout.html' %} {% block content %} 
+{% if user.is_authenticated %}
+<h1>{{ user.username }}</h1>
+<h2>{{user.email}}</h2>
+<h2>{{user.aadhar}}</h2>
+
+<a href="{% url 'logout' %}"><button>Logout</button></a>
+{% else %}
+{% if msg %}
+<h2>{{msg}}</h2>
+{% endif %}
+<h1>Anonymous</h1>
+<a href="{% url 'login' %}"><button>Login</button></a>
+{% endif %}
+ {% endblock %}
